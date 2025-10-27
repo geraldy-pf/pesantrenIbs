@@ -1,0 +1,35 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:15
+    container_name: odoo-db
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=odoo
+      - POSTGRES_PASSWORD=odoo
+    volumes:
+      - db-data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"   # biar kamu bisa konek pakai DBeaver/Postman kalau mau
+
+  odoo:
+    image: odoo:16
+    container_name: odoo-web
+    depends_on:
+      - db
+    ports:
+      - "8069:8069"
+    environment:
+      - HOST=db
+      - PORT=5432
+      - USER=odoo
+      - PASSWORD=odoo
+    volumes:
+      - ./addons:/mnt/extra-addons
+      - odoo-data:/var/lib/odoo
+    command: odoo -c /etc/odoo/odoo.conf --dev=all
+
+volumes:
+  db-data:
+  odoo-data:

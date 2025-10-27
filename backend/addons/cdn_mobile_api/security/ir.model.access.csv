@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_cdn_mobile_api_admin,cdn_mobile_api.admin,base.model_res_users,,1,0,0,0
+
+access_cdn_perijinan_all,cdn.perijinan.all,cdn_mobile_api.model_cdn_perijinan,,1,1,1,1
+
+access_cdn_perijinan_create,cdn.perijinan.create,cdn_mobile_api.model_cdn_perijinan,,1,1,1,1
