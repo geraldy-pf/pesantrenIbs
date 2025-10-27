@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- ACTION WINDOW -->
+    <record id="action_perijinan" model="ir.actions.act_window">
+        <field name="name">Perijinan</field>
+        <field name="res_model">cdn.perijinan</field>
+        <field name="view_mode">tree,form</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">
+                Buat perijinan santri pertama Anda.
+            </p>
+        </field>
+    </record>
+
+    <!-- TREE VIEW -->
+    <record id="view_perijinan_tree" model="ir.ui.view">
+        <field name="name">cdn.perijinan.tree</field>
+        <field name="model">cdn.perijinan</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name"/>
+                <field name="santri_id"/>
+                <field name="tujuan"/>
+                <field name="tanggal_mulai"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- FORM VIEW -->
+    <record id="view_perijinan_form" model="ir.ui.view">
+        <field name="name">cdn.perijinan.form</field>
+        <field name="model">cdn.perijinan</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="santri_id"/>
+                            <field name="tanggal_mulai"/>
+                            <field name="tanggal_selesai"/>
+                        </group>
+                        <group>
+                            <field name="tujuan"/>
+                            <field name="state"/>
+                        </group>
+                    </group>
+                    <group string="Keterangan">
+                        <field name="keterangan" nolabel="1"/>
+                    </group>
+                    <group string="Alasan Penolakan" attrs="{'invisible': [('state', '!=', 'rejected')]}">
+                        <field name="reject_reason" nolabel="1"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+</odoo>

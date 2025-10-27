@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <!-- MENU UTAMA -->
+    <menuitem id="menu_perijinan_root"
+              name="Perijinan"
+              sequence="10"/>
+
+    <!-- SUB MENU -->
+    <menuitem id="menu_perijinan_action"
+              name="Daftar Perijinan"
+              parent="menu_perijinan_root"
+              action="action_perijinan"
+              sequence="10"/>
+</odoo>
