@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'splash2.dart'; // pastikan file ini ada dan berisi class LoginPage
+import 'splash2.dart';
 
 class SplashPage1 extends StatefulWidget {
   const SplashPage1({Key? key}) : super(key: key);
@@ -15,14 +15,12 @@ class _SplashPage1State extends State<SplashPage1> {
   void initState() {
     super.initState();
 
-    // Fade out logo setelah 2 detik
     Future.delayed(const Duration(seconds: 2), () {
       setState(() {
         _opacity = 0.0;
       });
     });
 
-    // Pindah ke SplashPage2 setelah 3 detik
     Future.delayed(const Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(builder: (_) => const SplashPage2()),
